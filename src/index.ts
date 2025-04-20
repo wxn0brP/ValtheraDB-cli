@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Valthera } from "@wxn0brp/db";
 import { Command } from "commander";
 import operations from "./operations";
@@ -5,7 +7,7 @@ import { parseData } from "./utils";
 import { readFileSync } from "fs";
 
 const program = new Command();
-const v = JSON.parse(readFileSync("../package.json", "utf-8")).version;
+const v = JSON.parse(readFileSync(import.meta.dirname + "/../package.json", "utf-8")).version;
 
 program
     .version(v)
