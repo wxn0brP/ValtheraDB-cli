@@ -51,7 +51,7 @@ valthera-cli <operation_name> [arguments]
 Example:
 
 ```bash
-valthera-cli updateOne user "{\"id\":123}" "{\"name\": \"John\"}"
+valthera-cli updateOne user "{id:123}" "{name: \"John\"}"
 ```
 
 ## License
