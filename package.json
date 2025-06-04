@@ -1,6 +1,6 @@
 {
     "name": "@wxn0brp/db-cli",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "main": "dist/index.js",
     "author": "wxn0brP",
     "license": "MIT",
@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "@wxn0brp/db": "github:wxn0brP/ValtheraDB#dist",
-        "commander": "^13.1.0",
-        "fastify": "^5.3.2"
+        "@wxn0brp/falcon-frame": "^0.0.6",
+        "commander": "^13.1.0"
     }
 }
