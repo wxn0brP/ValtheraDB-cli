@@ -14,7 +14,7 @@ app.use(createCORSPlugin(["*"]).process);
 
 app.post("/db/:type", async (req, res) => {
     const { type } = req.params;
-    const { params, keys } = req.body as {
+    let { params, keys } = req.body as {
         params: unknown[],
         keys?: string[]
     };
@@ -23,6 +23,8 @@ app.post("/db/:type", async (req, res) => {
         res.status(400)
         return { err: true, msg: "Invalid type" };
     }
+
+    if (type === "getCollections") params = [0]; 
 
     if (!Array.isArray(params) || params.length === 0) {
         res.status(400);
