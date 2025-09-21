@@ -20,7 +20,7 @@ program
     .action(async (port) => {
         const opts = program.opts();
         process.env.DB_DIR = opts.dir;
-        if(port) process.env.PORT = port;
+        if (port) process.env.PORT = port;
         await import("./server");
     });
 
@@ -53,8 +53,8 @@ operations.forEach(operation => {
         });
 });
 
-program.on('command:*', async (operands) => {
-    console.log(`Unrecognized command: ${operands.join(' ')}`);
+program.on("command:*", async (operands) => {
+    console.log(`Unrecognized command: ${operands.join(" ")}`);
     const options = program.opts();
     const db = new Valthera(options.dir || ".");
     const result = await db[operands[0]](...operands.slice(1));

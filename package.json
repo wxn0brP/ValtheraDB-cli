@@ -1,10 +1,9 @@
 {
     "name": "@wxn0brp/db-cli",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "main": "dist/index.js",
     "author": "wxn0brP",
     "license": "MIT",
-    "private": true,
     "type": "module",
     "bin": {
         "valthera-cli": "./dist/index.js"
@@ -14,13 +13,13 @@
         "start": "node dist/index.js"
     },
     "devDependencies": {
-        "@types/node": "^24.1.0",
-        "tsc-alias": "^1.8.16",
-        "typescript": "^5.9.2"
+        "@types/node": "*",
+        "tsc-alias": "*",
+        "typescript": "*"
     },
     "dependencies": {
-        "@wxn0brp/db": ">=0.30.0",
-        "@wxn0brp/falcon-frame": "^0.0.21",
+        "@wxn0brp/db": ">=0.40.0",
+        "@wxn0brp/falcon-frame": "^0.1.0",
         "commander": "^14.0.0"
     }
 }
