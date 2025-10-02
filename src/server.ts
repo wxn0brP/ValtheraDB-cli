@@ -1,16 +1,15 @@
 import { Valthera } from "@wxn0brp/db";
-import deserializeFunctions from "./function";
 import path from "path";
 import FalconFrame from "@wxn0brp/falcon-frame";
-import { createCORSPlugin } from "@wxn0brp/falcon-frame/plugins/cors";
 import JSON5 from "json5";
+import { deserializeFunctions } from "@wxn0brp/wts-run-fn";
 
 const app = new FalconFrame();
 const dbDir = process.env.DB_DIR || process.cwd();
 const port = parseInt(process.env.PORT) || 3333;
 const db = new Valthera(dbDir);
 
-app.use(createCORSPlugin(["*"]).process);
+app.setOrigin(["*"]);
 
 app.post("/db/:type", async (req, res) => {
     const { type } = req.params;
@@ -24,7 +23,7 @@ app.post("/db/:type", async (req, res) => {
         return { err: true, msg: "Invalid type" };
     }
 
-    if (type === "getCollections") params = [0]; 
+    if (type === "getCollections") params = [0];
 
     if (!Array.isArray(params) || params.length === 0) {
         res.status(400);
