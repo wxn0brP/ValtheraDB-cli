@@ -55,11 +55,11 @@ operations.forEach(operation => {
 });
 
 program.
-    command("format <path>")
+    command("format [path]")
     .description("Format db data")
     .action(async (path) => {
         const { formatDB } = await import("./format");
-        await formatDB(path);
+        await formatDB(path || ".");
         console.log("Formatted Successfully");
     });
 
