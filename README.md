@@ -4,13 +4,13 @@ ValtheraDB CLI is a command-line tool for managing Valthera databases. It suppor
 
 ## Installation
 
-Install globally using Yarn:
+Install globally using Bun:
 
 ```bash
-yarn global add github:wxn0brP/ValtheraDB-cli#dist
+bun add -g github:wxn0brP/ValtheraDB-cli
 ```
 
-After installation, the `valthera-cli` command will be available.
+After installation, the `vdb` command will be available.
 
 ## Usage
 
@@ -18,17 +18,17 @@ After installation, the `valthera-cli` command will be available.
 
 View help:
 ```bash
-valthera-cli --help
+vdb --help
 ```
 
 Check version:
 ```bash
-valthera-cli --version
+vdb --version
 ```
 
 Specify database directory (default: current directory):
 ```bash
-valthera-cli -d <path_to_directory>
+vdb -d <path_to_directory>
 ```
 
 ### Start Server
@@ -36,22 +36,22 @@ valthera-cli -d <path_to_directory>
 Start the server on a specific port (or default):
 
 ```bash
-valthera-cli server [port]
+vdb server [port]
 ```
 
-> ### `Warning`: The server started by `valthera-cli` is a development server and does `not include authentication`. It is not recommended to use it in a production environment.
+> ### `Warning`: The server started by `vdb` is a development server and does `not include authentication`. It is not recommended to use it in a production environment.
 
 ### Run Operations
 
 Execute database operations:
 ```bash
-valthera-cli <operation_name> [arguments]
+vdb <operation_name> [arguments]
 ```
 
 Example:
 
 ```bash
-valthera-cli updateOne user "{id:123}" "{name: \"John\"}"
+vdb updateOne user "{id:123}" "{name: 'John'}"
 ```
 
 ## License

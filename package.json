@@ -6,7 +6,7 @@
     "license": "MIT",
     "type": "module",
     "bin": {
-        "vdb": "./src/index.js"
+        "vdb": "./src/index.ts"
     },
     "scripts": {
         "build": "tsc && tsc-alias"
