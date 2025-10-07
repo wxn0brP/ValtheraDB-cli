@@ -2,6 +2,7 @@ dist
 .vscode
 .suglite_history
 yarn.lock
+bun.lock
 package-lock.json
 node_modules
 test

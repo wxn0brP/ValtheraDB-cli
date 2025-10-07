@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 
 import { Valthera } from "@wxn0brp/db";
 import { Command } from "commander";
@@ -52,6 +52,15 @@ operations.forEach(operation => {
             console.log(result);
         });
 });
+
+program.
+    command("format <path>")
+    .description("Format db data")
+    .action(async (path) => {
+        const { formatDB } = await import("./format");
+        await formatDB(path);
+        console.log("Formatted Successfully");
+    });
 
 program.on("command:*", async (operands) => {
     console.log(`Unrecognized command: ${operands.join(" ")}`);
