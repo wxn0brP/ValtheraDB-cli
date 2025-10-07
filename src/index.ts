@@ -12,7 +12,8 @@ const v = JSON.parse(readFileSync(import.meta.dirname + "/../package.json", "utf
 program
     .version(v)
     .description("ValtheraDB CLI")
-    .option("-d, --dir <path>", "Directory of the database", process.cwd());
+    .option("-d, --dir <path>", "Directory of the database", process.cwd())
+    .option("-j, --json", "Use JSON format");
 
 program
     .command("server [port]")
@@ -49,7 +50,7 @@ operations.forEach(operation => {
             })
 
             const result = await db[name](...args);
-            console.log(result);
+            console.log(options.json ? JSON.stringify(result) : result);
         });
 });
 
