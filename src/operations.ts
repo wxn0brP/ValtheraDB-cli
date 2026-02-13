@@ -1,4 +1,4 @@
-const operations = [
+export const operations = [
     {
         name: "getCollections",
         description: "Get all collections",
@@ -24,13 +24,13 @@ const operations = [
         min: 2
     },
     {
-        name: "find <collection> <search> [context] [options] [findOpts]",
+        name: "find <collection> <search> [options] [findOpts] [context]",
         description: "Find documents in a collection",
         args: ["string", "object", "object", "object", "object"],
         min: 2
     },
     {
-        name: "findOne <collection> <search> [context] [findOpts]",
+        name: "findOne <collection> <search> [findOpts] [context]",
         description: "Find one document in a collection",
         args: ["string", "object", "object", "object"],
         min: 2
@@ -48,6 +48,12 @@ const operations = [
         min: 3
     },
     {
+        name: "updateOneOrAdd <collection> <search> <updater> [add_arg]",
+        description: "Update one document in a collection",
+        args: ["string", "object", "object", "object"],
+        min: 3
+    },
+    {
         name: "remove <collection> <search> [context]",
         description: "Remove documents in a collection",
         args: ["string", "object", "object"],
@@ -60,11 +66,15 @@ const operations = [
         min: 2
     },
     {
+        name: "toggleOne <collection> <data>",
+        description: "Update one document in a collection",
+        args: ["string", "object", "object"],
+        min: 2
+    },
+    {
         name: "removeCollection <collection>",
         description: "Remove a collection",
         args: ["string"],
         min: 1
     }
 ]
-
-export default operations;

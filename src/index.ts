@@ -1,10 +1,10 @@
 #!/usr/bin/env bun
 
-import { Valthera } from "@wxn0brp/db";
+import { Valthera } from "@wxn0brp/db/valthera";
 import { Command } from "commander";
-import operations from "./operations";
-import { parseData } from "./utils";
 import { readFileSync } from "fs";
+import { operations } from "./operations";
+import { parseData } from "./utils";
 
 const program = new Command();
 const v = JSON.parse(readFileSync(import.meta.dirname + "/../package.json", "utf-8")).version;
