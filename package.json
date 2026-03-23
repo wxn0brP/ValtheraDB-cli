@@ -14,7 +14,7 @@
     "devDependencies": {
         "@types/bun": "*",
         "tsc-alias": "*",
-        "typescript": "*"
+        "typescript": "^5"
     },
     "dependencies": {
         "@wxn0brp/db": "^0.50.0",
