@@ -49,7 +49,9 @@ operations.forEach(operation => {
                 return parseData(data, type);
             })
 
-            const result = await db[name](...args);
+            const collection = args.shift();
+
+            const result = await db.c(collection)[name](...args);
             console.log(options.json ? JSON.stringify(result) : result);
         });
 });
@@ -67,7 +69,7 @@ program.on("command:*", async (operands) => {
     console.log(`Unrecognized command: ${operands.join(" ")}`);
     const options = program.opts();
     const db = new Valthera(options.dir || ".");
-    const result = await db[operands[0]](...operands.slice(1));
+    const result = await db.c(operands[1])[operands[0]](...operands.slice(2));
     console.log(result);
 })
 
