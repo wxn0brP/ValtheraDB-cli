@@ -1,4 +1,4 @@
-import { Valthera } from "@wxn0brp/db";
+import { Valthera } from "@wxn0brp/db/valthera";
 import path from "path";
 import FalconFrame from "@wxn0brp/falcon-frame";
 import JSON5 from "json5";
