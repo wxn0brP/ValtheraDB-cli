@@ -64,6 +64,13 @@ program
         await import("./server");
     });
 
+program
+    .command("upgrade")
+    .description("Upgrade cli")
+    .action(async () => {
+        await Bun.$`bun add -g github:wxn0brP/ValtheraDB-cli#master --force`;
+    });
+
 operations.forEach(operation => {
     program
         .command(operation.name)
