@@ -1,23 +1,5 @@
 export const operations = [
     {
-        name: "getCollections",
-        description: "Get all collections",
-        args: [],
-        min: 0
-    },
-    {
-        name: "checkCollection <collection>",
-        description: "Check if a collection exists",
-        args: ["string"],
-        min: 1
-    },
-    {
-        name: "issetCollection <collection>",
-        description: "Check if a collection exists",
-        args: ["string"],
-        min: 1
-    },
-    {
         name: "add <collection> <data> [id_gen]",
         description: "Add a document to a collection",
         args: ["string", "object", "boolean"],
@@ -71,10 +53,32 @@ export const operations = [
         args: ["string", "object", "object"],
         min: 2
     },
+]
+
+export const collectionOperations = [
+
+    {
+        name: "getCollections",
+        description: "Get all collections",
+        args: [],
+        min: 0
+    },
+    {
+        name: "ensureCollection <collection>",
+        description: "Ensure a collection exists",
+        args: ["string"],
+        min: 1
+    },
+    {
+        name: "issetCollection <collection>",
+        description: "Check if a collection exists",
+        args: ["string"],
+        min: 1
+    },
     {
         name: "removeCollection <collection>",
         description: "Remove a collection",
         args: ["string"],
         min: 1
     }
-]
+];
