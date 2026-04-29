@@ -120,11 +120,11 @@ collectionOperations.forEach(operation => {
 });
 
 program.
-    command("format [path]")
-    .description("Format db data")
-    .action(async (path) => {
+    command("format [path] [format]")
+    .description("Format the data in the db-storage-dir")
+    .action(async (path, formatName) => {
         const { formatDB } = await import("./format");
-        await formatDB(path || ".");
+        await formatDB(path || ".", formatName || "json5:x");
         console.log("Formatted Successfully");
     });
 

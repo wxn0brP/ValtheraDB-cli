@@ -1,13 +1,12 @@
-import { Valthera } from "@wxn0brp/db/valthera";
-import path from "path";
+import { ValtheraCreate } from "@wxn0brp/db";
 import FalconFrame from "@wxn0brp/falcon-frame";
-import JSON5 from "json5";
 import { deserializeFunctions } from "@wxn0brp/wts-run-fn";
+import path from "path";
 
 const app = new FalconFrame();
 const dbDir = process.env.DB_DIR || process.cwd();
 const port = parseInt(process.env.PORT) || 3333;
-const db = new Valthera(dbDir);
+const db = ValtheraCreate(dbDir);
 
 app.setOrigin(["*"]);
 
@@ -30,7 +29,7 @@ app.post("/db/:type", async (req, res) => {
         return { err: true, msg: "params is required" };
     }
 
-    const paramArgs = params.map(param => JSON5.stringify(param));
+    const paramArgs = params.map(param => Bun.JSON5.stringify(param));
     const str = type + "(" + paramArgs.join(", ") + ")";
     console.log(str);
 
@@ -48,4 +47,7 @@ app.post("/db/:type", async (req, res) => {
 app.listen(port, () => {
     console.log(`ValtheraDB dev server running at http://localhost:${port}`);
     console.log(`Using database at: ${path.resolve(dbDir)}`);
+    console.log();
+    console.warn("    \x1b[33mWARNING: This is a development server and should not be used in production.\x1b[0m");
+    console.log();
 });
