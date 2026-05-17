@@ -17,10 +17,10 @@
         "typescript": "^6"
     },
     "dependencies": {
-        "@wxn0brp/db": "^0.100.2",
-        "@wxn0brp/db-core": "^0.10.4",
+        "@wxn0brp/db": "^0.110.0",
+        "@wxn0brp/db-core": "^0.11.0",
         "@wxn0brp/db-resolver": "^0.100.1",
-        "@wxn0brp/falcon-frame": "^0.8.1",
+        "@wxn0brp/falcon-frame": "^0.8.2",
         "@wxn0brp/wts-run-fn": "github:wxn0brP/ts-shared#dist-run-fn",
         "commander": "^14.0.3"
     }
