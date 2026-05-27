@@ -12,30 +12,18 @@ app.setOrigin(["*"]);
 
 app.post("/db/:type", async (req, res) => {
     const { type } = req.params;
-    let { params, keys } = req.body as {
-        params: unknown[],
-        keys?: string[]
-    };
+    const { keys, query } = req.body
 
     if (!type || typeof (db as any)[type] !== "function") {
         res.status(400)
         return { err: true, msg: "Invalid type" };
     }
-
-    if (type === "getCollections") params = [0];
-
-    if (!Array.isArray(params) || params.length === 0) {
-        res.status(400);
-        return { err: true, msg: "params is required" };
-    }
-
-    const paramArgs = params.map(param => Bun.JSON5.stringify(param));
-    const str = type + "(" + paramArgs.join(", ") + ")";
+    const str = type + "(" + Bun.JSON5.stringify(query) + ")";
     console.log(str);
 
     try {
-        const parsedParams = deserializeFunctions(params, keys || []) as any;
-        const result = await (db as any)[type](...parsedParams);
+        const parsedParams = deserializeFunctions(query, keys || []);
+        const result = await (db as any)[type](parsedParams);
         return { err: false, result };
     } catch (e: any) {
         console.error(e);
