@@ -1,6 +1,8 @@
 # ValtheraDB CLI 
 
-ValtheraDB CLI is a command-line tool for managing Valthera databases. It supports various database operations, starting a server, and dynamic commands. Powered by @wxn0brp/db (ValtheraDB)
+ValtheraDB CLI is a command-line tool for managing Valthera databases.
+It supports various database operations, starting a server, and dynamic commands.
+Powered by @wxn0brp/db (ValtheraDB)
 
 ## Installation
 
@@ -17,16 +19,19 @@ After installation, the `vdb` command will be available.
 ### Basic Commands
 
 View help:
+
 ```bash
 vdb --help
 ```
 
 Check version:
+
 ```bash
 vdb --version
 ```
 
 Specify database directory (default: current directory):
+
 ```bash
 vdb -d <path_to_directory>
 ```
@@ -56,4 +61,4 @@ vdb updateOne user "{id:123}" "{name: 'John'}"
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+MIT License
