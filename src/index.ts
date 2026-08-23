@@ -57,7 +57,7 @@ async function getValthera(options: {
 	const adapter = await createAdapter(currentConfig);
 
 	return new ValtheraClass({
-		dbAction: adapter,
+		adapter,
 	});
 }
 
